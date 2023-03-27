@@ -18,6 +18,15 @@ var variables = {
     id: 10165
 };
 
+function runQuery()
+{
+    // Make the HTTP Api request
+    fetch(url, options).then(handleResponse)
+                        .then(handleData)
+                        .catch(handleError);
+}
+
+
 // Define the config we'll need for our Api request
 var url = 'https://graphql.anilist.co',
     options = {
@@ -32,10 +41,7 @@ var url = 'https://graphql.anilist.co',
         })
     };
 
-// Make the HTTP Api request
-fetch(url, options).then(handleResponse)
-                   .then(handleData)
-                   .catch(handleError);
+
 
 function handleResponse(response) {
     return response.json().then(function (json) {
