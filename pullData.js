@@ -45,7 +45,7 @@ function handleResponse(response) {
 
 function handleData(data) {
     console.log(data);
-    document.getElementById("query-text").innerHTML = data.Media.english;
+    document.getElementById("query-text").innerHTML = data;
 }
 
 function handleError(error) {
