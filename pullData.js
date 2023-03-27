@@ -26,6 +26,10 @@ function runQuery()
                         .catch(handleError);
 }
 
+function changeText(data)
+{
+    document.getElementById("query-text").innerHTML = data.data.Media.title.english;
+}
 
 // Define the config we'll need for our Api request
 var url = 'https://graphql.anilist.co',
@@ -51,7 +55,7 @@ function handleResponse(response) {
 
 function handleData(data) {
     console.log(data);
-    document.getElementById("query-text").innerHTML = data.data.Media.id;
+    document.getElementById("query-text").onclick = changeText(data);
 }
 
 function handleError(error) {
