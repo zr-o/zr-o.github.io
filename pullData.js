@@ -13,18 +13,88 @@ query ($id: Int) { # Define which variables will be used in the query (id)
 }
 `;
 
+var userIDQuery = `
+query ($name: String) {
+    User(name: $name) {
+      id
+    }
+  }
+`;
+
+var mediaListQuery = `
+query ($id: Int) {
+    User(id: $id) {
+      status
+    }
+  }
+`;
+
+// {
+//     Viewer(id: 5937728) {
+//       User {
+//         statistics
+//         {
+//           anime
+//         }
+//       }
+//     }
+//   }
+  
+
+//
+//
+// NEED AUTH TO GET SPECIFIC USER DATA
+// CANT QUERY LOCALLY, LOGIN REQUIRED & THEN STORE DATA IN DB TO COMPARE
+//
+
 // Define our query variables and values that will be used in the query request
-var variables = {
-    id: 10165
+var userVariables = {
+    name: "anizro",
+    id: 0
 };
 
-function runQuery()
+function runUserQuery()
 {
     // Make the HTTP Api request
-    fetch(url, options).then(handleResponse)
+    fetch(getIDURL, options).then(handleResponse)
                         .then(handleData)
                         .catch(handleError);
 }
+
+function getMediaList()
+{
+    // Make the HTTP Api request
+    fetch(getMediaListURL, options).then(handleResponse)
+                        .then(handleMediaData)
+                        .catch(handleError);
+}
+// Define the config we'll need for our Api request
+var getMediaListURL = 'https://graphql.anilist.co',
+    options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            query: mediaListQuery,
+            variables: userVariables
+        })
+    };
+
+// Define the config we'll need for our Api request
+var getIDURL = 'https://graphql.anilist.co',
+    options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            query: userIDQuery,
+            variables: userVariables
+        })
+    };
 
 // Define the config we'll need for our Api request
 var url = 'https://graphql.anilist.co',
@@ -48,9 +118,15 @@ function handleResponse(response) {
     });
 }
 
+function handleMediaData(data) {
+    console.log(data);
+    document.getElementById("query-text1").innerHTML = data.data.User.id;
+}
+
 function handleData(data) {
     console.log(data);
-    document.getElementById("query-text").innerHTML = data.data.Media.title.english;
+    userVariables.id = data.data.User.id;
+    getMediaList();
 }
 
 function handleError(error) {
