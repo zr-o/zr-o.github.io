@@ -1,2 +1,6 @@
 let authToken = document.cookie;
-document.getElementById("tokenText").innerHTML = authToken;
+
+function showToken()
+{
+    document.getElementById("tokenText").innerHTML = authToken;
+}

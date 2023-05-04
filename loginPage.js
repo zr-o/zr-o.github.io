@@ -5,7 +5,7 @@ function checkUrl()
     if(url.indexOf("access_token") > -1)
     {
         document.cookie = "token=" + url.substring(1);
-        window.location.replace("https://zr-o.github.io./Home");
+        window.location.replace("https://zr-o.github.io./home");
     }
     else
     {
