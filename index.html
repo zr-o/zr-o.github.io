@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <!-- <script type="text/javascript" src="/pullData.js"></script> -->
-    <script type="text/javascript" src="pullData.js"></script>
+    <script type="text/javascript" src="/pullData.js"></script>
+    <!-- <script type="text/javascript" src="pullData.js"></script> -->
 
     <body>
         <h1> Hi :3 ^-^ </h1>
         <p> This page is hosted with GitHub Pages! </p>
-        <input type="text" id="inputUserName" value="Enter username...">
+
         <button onclick="runUserQuery()"> Run Query </button>
+
+        <a onclick="checkForAuth()" href='https://anilist.co/api/v2/oauth/authorize?client_id=12497&response_type=token'>Login with AniList</a>
+
+
         <p id="query-text1"> Query Info </p>
         <p id="query-text2"> Query Info </p>
         <p id="query-text3"> Query Info </p>

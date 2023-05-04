@@ -82,6 +82,22 @@ var getMediaListURL = 'https://graphql.anilist.co',
         })
     };
 
+var authURL = 'https://graphql.anilist.co',
+options = {
+    method: 'POST',
+    headers: {
+        'Authorization': 'Bearer ' + accessToken,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+        query: query
+    })
+};
+
+fetch(url, options).then(handleResponse, handleError);
+
+
 // Define the config we'll need for our Api request
 var getIDURL = 'https://graphql.anilist.co',
     options = {
@@ -132,4 +148,11 @@ function handleData(data) {
 function handleError(error) {
     alert('Error, check console');
     console.error(error);
+}
+
+function checkForAuth()
+{
+    var url = window.location;
+    var access_token = new URLSearchParams(url.search).get('access_token');
+    console.log(access_token);
 }
