@@ -157,9 +157,7 @@ var userVariables = {
 //     console.log(access_token);
 // }
 
-function addListener()
-{
-    window.addEventListener('hashchange', function() {
-        console.log("URL Changed!");
-    });
-}
+
+$(window).on('hashchange', function(){
+    console.log("Hash Changed!")
+}).trigger('hashchange');
