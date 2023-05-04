@@ -156,3 +156,8 @@ function checkForAuth()
     var access_token = new URLSearchParams(url.search).get('access_token');
     console.log(access_token);
 }
+
+function testEmpty()
+{
+    
+}
