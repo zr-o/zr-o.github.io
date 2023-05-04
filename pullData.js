@@ -159,7 +159,7 @@ function checkForAuth()
 
 function authUser()
 {
-    window.addEventListener('popstate', function (event) {
-        console.log(event.state);
+    window.addEventListener('hashchange', function() {
+        console.log("URL Changed!");
     });
 }
