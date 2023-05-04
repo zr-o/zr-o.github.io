@@ -157,7 +157,7 @@ var userVariables = {
 //     console.log(access_token);
 // }
 
-function authUser()
+function addListener()
 {
     window.addEventListener('hashchange', function() {
         console.log("URL Changed!");
