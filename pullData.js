@@ -158,6 +158,7 @@ var userVariables = {
 // }
 
 
-$(window).on('hashchange', function(){
+window.onhashchange = function() {
+    // code goes here
     console.log("Hash Changed!")
-}).trigger('hashchange');
+}
