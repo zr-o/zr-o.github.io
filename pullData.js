@@ -157,7 +157,9 @@ function checkForAuth()
     console.log(access_token);
 }
 
-function testEmpty()
+function authUser()
 {
-    
+    window.addEventListener('popstate', function (event) {
+        console.log(event.state);
+    });
 }
