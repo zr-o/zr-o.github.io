@@ -158,7 +158,8 @@ var userVariables = {
 // }
 
 
-window.onhashchange = function() {
-    // code goes here
-    console.log("Hash Changed!")
-}
+window.addEventListener('hashchange', () => {
+    if (window.location.hash.startsWith('#access')) {
+      console.log("Contains Token!")
+    }
+});
