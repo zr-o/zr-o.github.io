@@ -1,7 +1,7 @@
 function checkUrl()
 {
     var url = window.location.hash;
-    console.log(url)
+    console.log(url);
     if(url.indexOf("access_token") > -1)
     {
         document.cookie = "token=" + url.substring(1);
