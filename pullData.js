@@ -53,34 +53,34 @@ var userVariables = {
     id: 0
 };
 
-function runUserQuery()
-{
-    // Make the HTTP Api request
-    fetch(getIDURL, options).then(handleResponse)
-                        .then(handleData)
-                        .catch(handleError);
-}
+// function runUserQuery()
+// {
+//     // Make the HTTP Api request
+//     fetch(getIDURL, options).then(handleResponse)
+//                         .then(handleData)
+//                         .catch(handleError);
+// }
 
-function getMediaList()
-{
-    // Make the HTTP Api request
-    fetch(getMediaListURL, options).then(handleResponse)
-                        .then(handleMediaData)
-                        .catch(handleError);
-}
-// Define the config we'll need for our Api request
-var getMediaListURL = 'https://graphql.anilist.co',
-    options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-            query: mediaListQuery,
-            variables: userVariables
-        })
-    };
+// function getMediaList()
+// {
+//     // Make the HTTP Api request
+//     fetch(getMediaListURL, options).then(handleResponse)
+//                         .then(handleMediaData)
+//                         .catch(handleError);
+// }
+// // Define the config we'll need for our Api request
+// var getMediaListURL = 'https://graphql.anilist.co',
+//     options = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json',
+//         },
+//         body: JSON.stringify({
+//             query: mediaListQuery,
+//             variables: userVariables
+//         })
+//     };
 
 // var authURL = 'https://graphql.anilist.co',
 // options = {
@@ -95,67 +95,67 @@ var getMediaListURL = 'https://graphql.anilist.co',
 //     })
 // };
 
-fetch(url, options).then(handleResponse, handleError);
+//fetch(url, options).then(handleResponse, handleError);
 
 
-// Define the config we'll need for our Api request
-var getIDURL = 'https://graphql.anilist.co',
-    options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-            query: userIDQuery,
-            variables: userVariables
-        })
-    };
+// // Define the config we'll need for our Api request
+// var getIDURL = 'https://graphql.anilist.co',
+//     options = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json',
+//         },
+//         body: JSON.stringify({
+//             query: userIDQuery,
+//             variables: userVariables
+//         })
+//     };
 
-// Define the config we'll need for our Api request
-var url = 'https://graphql.anilist.co',
-    options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-            query: query,
-            variables: variables
-        })
-    };
+// // Define the config we'll need for our Api request
+// var url = 'https://graphql.anilist.co',
+//     options = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json',
+//         },
+//         body: JSON.stringify({
+//             query: query,
+//             variables: variables
+//         })
+//     };
 
 
 
-function handleResponse(response) {
-    return response.json().then(function (json) {
-        return response.ok ? json : Promise.reject(json);
-    });
-}
+// function handleResponse(response) {
+//     return response.json().then(function (json) {
+//         return response.ok ? json : Promise.reject(json);
+//     });
+// }
 
-function handleMediaData(data) {
-    console.log(data);
-    document.getElementById("query-text1").innerHTML = data.data.User.id;
-}
+// function handleMediaData(data) {
+//     console.log(data);
+//     document.getElementById("query-text1").innerHTML = data.data.User.id;
+// }
 
-function handleData(data) {
-    console.log(data);
-    userVariables.id = data.data.User.id;
-    getMediaList();
-}
+// function handleData(data) {
+//     console.log(data);
+//     userVariables.id = data.data.User.id;
+//     getMediaList();
+// }
 
-function handleError(error) {
-    alert('Error, check console');
-    console.error(error);
-}
+// function handleError(error) {
+//     alert('Error, check console');
+//     console.error(error);
+// }
 
-function checkForAuth()
-{
-    var url = window.location;
-    var access_token = new URLSearchParams(url.search).get('access_token');
-    console.log(access_token);
-}
+// function checkForAuth()
+// {
+//     var url = window.location;
+//     var access_token = new URLSearchParams(url.search).get('access_token');
+//     console.log(access_token);
+// }
 
 function authUser()
 {
