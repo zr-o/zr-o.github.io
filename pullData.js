@@ -82,18 +82,18 @@ var getMediaListURL = 'https://graphql.anilist.co',
         })
     };
 
-var authURL = 'https://graphql.anilist.co',
-options = {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer ' + accessToken,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-    },
-    body: JSON.stringify({
-        query: query
-    })
-};
+// var authURL = 'https://graphql.anilist.co',
+// options = {
+//     method: 'POST',
+//     headers: {
+//         'Authorization': 'Bearer ' + accessToken,
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json',
+//     },
+//     body: JSON.stringify({
+//         query: query
+//     })
+// };
 
 fetch(url, options).then(handleResponse, handleError);
 
